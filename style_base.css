@@ -1,0 +1,282 @@
+/* style_base.css */
+
+/* Importação de fontes do Google Fonts */
+/* Playfair Display para títulos (elegante), Roboto para corpo (legível), */
+/* Merriweather para o poema (clássico/serifado), Satisfy para detalhes (decorativo) */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&family=Roboto:wght@300;400;700&family=Satisfy&display=swap');
+
+/* Variáveis CSS para facilitar a manutenção e padronização de cores e fontes */
+:root {
+    /* Paleta de Cores (inspirada no espaço noturno e elementos de cordel) */
+    --cor-fundo-principal: #0D1B2A; /* Azul noturno profundo */
+    --cor-fundo-secundario: #1B263B; /* Azul mais claro para seções e cards */
+    --cor-texto-claro: #E0E1DD; /* Branco suave para texto principal, bom contraste */
+    --cor-texto-destaque: #FFC300; /* Amarelo dourado para títulos e links, simulando estrelas */
+    --cor-texto-cordel: #B0C4DE; /* Azul acinzentado suave para o texto do poema */
+    --cor-botao-fundo: #0077B6; /* Azul médio para botões */
+    --cor-botao-hover: #0096C7; /* Azul mais claro para efeito hover no botão */
+    --cor-borda-xilogravura: #415A77; /* Azul escuro para bordas que simulem xilogravura */
+
+    /* Sombras para dar profundidade e destaque aos elementos */
+    --sombra-leve: 0 4px 8px rgba(0, 0, 0, 0.3);
+    --sombra-media: 0 6px 12px rgba(0, 0, 0, 0.4);
+
+    /* Definição de fontes com fallback */
+    --fonte-titulo: 'Playfair Display', serif;
+    --fonte-corpo: 'Roboto', sans-serif;
+    --fonte-cordel: 'Merriweather', serif;
+    --fonte-decorativa: 'Satisfy', cursive;
+}
+
+/* Reset básico para remover margens e preenchimentos padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura do elemento */
+}
+
+/* Estilos globais para o corpo da página */
+body {
+    font-family: var(--fonte-corpo); /* Fonte padrão para o corpo do texto */
+    background-color: var(--cor-fundo-principal); /* Fundo azul escuro */
+    color: var(--cor-texto-claro); /* Cor do texto principal */
+    line-height: 1.6; /* Espaçamento entre linhas para melhor legibilidade */
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo em coluna (para o footer) */
+    min-height: 100vh; /* Garante que o corpo ocupe pelo menos 100% da altura da viewport */
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada em dispositivos móveis */
+
+    background-image: url('img/fundo_4.jpg'); /* Caminho da sua imagem */
+    background-size: cover; /* Faz a imagem cobrir todo o fundo */
+    background-position: center center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    background-attachment: fixed; /* Fixa a imagem no viewport para um efeito paralaxe sutil */
+}
+
+/* Container principal para centralizar o conteúdo da página */
+.container {
+    max-width: 960px; /* Largura máxima para o conteúdo principal */
+    margin: 0 auto; /* Centraliza o container horizontalmente */
+    padding: 20px; /* Espaçamento interno */
+    flex-grow: 1; /* Permite que o container cresça e ocupe o espaço disponível */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens dentro do container */
+}
+
+/* Estilo do título principal (h1) */
+h1 {
+    font-family: var(--fonte-titulo);
+    font-size: 3.5em; /* Tamanho da fonte */
+    color: var(--cor-texto-destaque); /* Cor dourada */
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: var(--sombra-media); /* Sombra para dar profundidade */
+    padding: 20px 0;
+    position: relative; /* Necessário para posicionar os pseudo-elementos de xilogravura */
+}
+
+/* Efeito de xilogravura sutil no título usando pseudo-elementos */
+h1::before,
+h1::after {
+    content: '';
+    position: absolute;
+    width: 80%; /* Largura das linhas */
+    height: 3px; /* Espessura das linhas */
+    background-color: var(--cor-borda-xilogravura);
+    left: 10%; /* Centraliza as linhas */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+h1::before {
+    top: 0; /* Linha superior */
+}
+
+h1::after {
+    bottom: 0; /* Linha inferior */
+}
+
+/* Estilo para a div que contém o poema de cordel */
+.poema {
+    font-family: var(--fonte-cordel);
+    font-size: 1.3em;
+    color: var(--cor-texto-cordel);
+    /* background-color: var(--cor-fundo-secundario); */
+    background-color: rgba(27, 38, 59, 0.7); /* Usando o valor RGB de --cor-fundo-secundario com 70% de opacidade */
+    padding: 30px;
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: var(--sombra-leve);
+    margin-bottom: 30px;
+    white-space: pre-line; /* Preserva as quebras de linha do HTML para os versos */
+    text-align: center; /* Centraliza os versos */
+    position: relative; /* Necessário para os detalhes de canto */
+    line-height: 1.8; /* Espaçamento entre linhas para melhor leitura do poema */
+    max-width: 700px; /* Limita a largura para otimizar a leitura em telas grandes */
+    width: 90%; /* Responsividade: ocupa 90% da largura do pai */
+    border: 2px solid var(--cor-borda-xilogravura); /* Borda mais pronunciada */
+}
+
+/* Detalhes de xilogravura nos cantos do poema usando pseudo-elementos */
+.poema::before,
+.poema::after {
+    content: '';
+    position: absolute;
+    width: 40px; /* Tamanho dos cantos */
+    height: 40px;
+    border: 5px solid var(--cor-texto-destaque); /* Cor de destaque para os cantos */
+    border-radius: 5px;
+}
+
+.poema::before {
+    top: -10px;
+    left: -10px;
+    border-right: none; /* Remove bordas para criar o efeito de canto */
+    border-bottom: none;
+}
+
+.poema::after {
+    bottom: -10px;
+    right: -10px;
+    border-left: none; /* Remove bordas para criar o efeito de canto */
+    border-top: none;
+}
+
+/* Estilo para links dentro do poema */
+.poema a {
+    color: var(--cor-texto-destaque);
+    text-decoration: none; /* Remove o sublinhado padrão */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Transição suave na cor ao passar o mouse */
+}
+
+.poema a:hover {
+    color: var(--cor-botao-hover); /* Muda a cor ao passar o mouse */
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Estilo para o player de áudio */
+.audio-player {
+    margin-bottom: 30px;
+    background-color: var(--cor-fundo-secundario);
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: var(--sombra-leve);
+    width: 90%; /* Responsividade */
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.audio-player audio {
+    width: 100%; /* Ocupa a largura total do container */
+    /* Filtro para tentar harmonizar as cores do player padrão do navegador */
+    filter: invert(80%) sepia(100%) saturate(200%) hue-rotate(180deg) brightness(100%) contrast(100%); 
+}
+
+/* Estilo para o botão "Saber mais" */
+.botao {
+    display: inline-block; /* Permite definir largura/altura e aplicar padding */
+    background-color: var(--cor-botao-fundo);
+    color: var(--cor-texto-claro);
+    padding: 15px 30px;
+    border-radius: 50px; /* Botão completamente arredondado */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves para hover */
+    box-shadow: var(--sombra-leve);
+    text-align: center;
+}
+
+.botao:hover {
+    background-color: var(--cor-botao-hover);
+    transform: translateY(-3px); /* Efeito de "subida" ao passar o mouse */
+    box-shadow: var(--sombra-media); /* Sombra mais intensa no hover */
+}
+
+/* Estilo para a seção de Referências (footer) */
+.referencias {
+    background-color: var(--cor-fundo-secundario);
+    padding: 30px;
+    border-top: 5px solid var(--cor-borda-xilogravura); /* Borda superior para separar visualmente */
+    margin-top: auto; /* Empurra o footer para o final da página */
+    width: 100%; /* Ocupa toda a largura da viewport */
+    text-align: center;
+}
+
+.referencias h2 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-texto-destaque);
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.referencias p {
+    font-size: 0.9em;
+    color: var(--cor-texto-claro);
+    margin-bottom: 10px;
+}
+
+.referencias p em {
+    font-style: italic;
+}
+
+/* Regras de Responsividade (Media Queries) */
+
+/* Para telas menores que 768px (tablets e smartphones maiores) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em; /* Reduz o tamanho do título */
+    }
+
+    .poema {
+        font-size: 1.1em; /* Reduz o tamanho da fonte do poema */
+        padding: 20px; /* Ajusta o padding */
+    }
+
+    .audio-player {
+        padding: 10px 15px; /* Ajusta o padding do player */
+    }
+
+    .botao {
+        padding: 12px 25px; /* Ajusta o padding do botão */
+        font-size: 1em; /* Reduz o tamanho da fonte do botão */
+    }
+
+    .referencias h2 {
+        font-size: 1.8em; /* Reduz o tamanho do título das referências */
+    }
+}
+
+/* Para telas menores que 480px (smartphones) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em; /* Reduz ainda mais o título */
+        margin-bottom: 20px;
+    }
+
+    .poema {
+        font-size: 1em; /* Tamanho da fonte padrão para o poema */
+        padding: 15px; /* Reduz o padding */
+    }
+
+    .poema::before,
+    .poema::after {
+        width: 25px; /* Reduz o tamanho dos cantos */
+        height: 25px;
+        border-width: 3px; /* Reduz a espessura da borda dos cantos */
+    }
+
+    .botao {
+        width: 90%; /* Botão ocupa quase toda a largura para fácil clique */
+        margin-left: auto;
+        margin-right: auto;
+        display: block; /* Para garantir que ocupe a largura total */
+    }
+
+    .audio-player {
+        width: 90%; /* Player ocupa quase toda a largura */
+    }
+}
