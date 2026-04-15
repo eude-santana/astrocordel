@@ -222,13 +222,6 @@ h1::after {
     align-items: center;
 }
 
-.audio-player audio {
-    width: 100%;
-    /* Ocupa a largura total do container */
-    /* Filtro para tentar harmonizar as cores do player padrão do navegador */
-    filter: invert(80%) sepia(100%) saturate(200%) hue-rotate(180deg) brightness(100%) contrast(100%);
-}
-
 /* Estilo para o botão "Saber mais" */
 .botao {
     display: inline-block;
@@ -362,19 +355,44 @@ h1::after {
 /* Nav Menu */
 .nav-menu {
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
     background-color: var(--cor-fundo-secundario);
-    padding: 15px;
     box-shadow: var(--sombra-media);
     border-bottom: 2px solid var(--cor-borda-xilogravura);
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+}
+
+.nav-brand span {
+    font-family: var(--fonte-titulo);
+    font-size: 2em;
+    color: var(--cor-texto-destaque);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease;
+}
+
+.nav-brand:hover span {
+    color: var(--cor-texto-claro);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
 }
 
 .nav-menu a {
     color: var(--cor-texto-claro);
     text-decoration: none;
     font-family: var(--fonte-titulo);
-    font-size: 1.2em;
+    font-size: 1.4em;
     transition: color 0.3s ease;
 }
 
@@ -430,6 +448,8 @@ h1::after {
 .intro-text {
     font-size: 1.5em;
     font-family: var(--fonte-corpo);
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
     text-align: center;
     margin-bottom: 40px;
     max-width: 700px;
@@ -502,95 +522,292 @@ h1::after {
     border: none;
 }
 
-/* Nav Menu */
-.nav-menu {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    background-color: var(--cor-fundo-secundario);
-    padding: 15px;
+/* Logos Patrocínio */
+.logo-patrocinio {
+    height: 100px;
+    border-radius: 8px;
+    background: white;
+    padding: 10px;
     box-shadow: var(--sombra-media);
-    border-bottom: 2px solid var(--cor-borda-xilogravura);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.nav-menu a {
-    color: var(--cor-texto-claro);
-    text-decoration: none;
-    font-family: var(--fonte-titulo);
-    font-size: 1.2em;
-    transition: color 0.3s ease;
+.logo-patrocinio:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.4);
 }
 
-.nav-menu a:hover,
-.nav-menu a.active {
-    color: var(--cor-texto-destaque);
-}
+/* ========================================================================= */
+/* ESTILOS DA PÁGINA QUEM SOMOS E EQUIPE */
+/* ========================================================================= */
 
-/* Card Container and Cards for Home Page */
-.card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+.sobre-projeto-section {
     width: 100%;
-    max-width: 800px;
-    margin-top: 20px;
-}
-
-.card {
-    background-color: rgba(27, 38, 59, 0.7);
-    border: 2px solid var(--cor-borda-xilogravura);
-    border-radius: 10px;
-    padding: 20px;
-    width: calc(50% - 20px);
-    min-width: 250px;
+    max-width: 900px;
+    margin: 40px auto 50px auto;
     text-align: center;
-    text-decoration: none;
-    color: var(--cor-texto-claro);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    box-shadow: var(--sombra-leve);
 }
 
-.card:hover {
+.sobre-projeto-section h2 {
+    font-family: var(--fonte-titulo);
+    font-size: 2.5em;
+    color: var(--cor-texto-destaque);
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+}
+
+.sobre-projeto-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background-color: var(--cor-botao-fundo);
+    border-radius: 2px;
+}
+
+.sobre-projeto-section p {
+    font-family: var(--fonte-corpo);
+    font-size: 1.5em;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    color: var(--cor-texto-claro);
+    line-height: 1.8;
+    margin: 0 auto 20px auto;
+    max-width: 700px;
+    text-align: center;
+}
+
+.equipe-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 60px auto;
+    text-align: center;
+}
+
+.equipe-section h2 {
+    font-family: var(--fonte-titulo);
+    font-size: 2.5em;
+    color: var(--cor-texto-claro);
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.equipe-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background-color: var(--cor-botao-fundo);
+    border-radius: 2px;
+}
+
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.equipe-card {
+    background-color: rgba(27, 38, 59, 1);
+    border: 2px solid var(--cor-borda-xilogravura);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+    text-align: left;
+    box-shadow: var(--sombra-leve);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.equipe-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--sombra-media);
     border-color: var(--cor-texto-destaque);
 }
 
-.card h2 {
+.equipe-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.equipe-card-content {
+    padding: 20px;
+}
+
+.equipe-card h3 {
+    font-family: var(--fonte-titulo);
+    font-size: 1.4em;
+    color: var(--cor-texto-destaque);
+    margin-bottom: 5px;
+}
+
+.equipe-card .email {
+    font-family: var(--fonte-corpo);
+    font-size: 0.9em;
+    color: var(--cor-texto-cordel);
+    margin-bottom: 15px;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.equipe-card .email:hover {
+    text-decoration: underline;
+    color: var(--cor-texto-claro);
+}
+
+.equipe-card p {
+    font-family: var(--fonte-corpo);
+    font-size: 0.9em;
+    color: var(--cor-texto-claro);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.time-completo-section {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 60px auto;
+    text-align: center;
+}
+
+.time-completo-section h2 {
+    font-family: var(--fonte-titulo);
+    font-size: 2.5em;
+    color: var(--cor-texto-claro);
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.time-completo-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background-color: var(--cor-botao-fundo);
+    border-radius: 2px;
+}
+
+.time-completo-wrapper {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--sombra-media);
+    border: 2px solid var(--cor-borda-xilogravura);
+    background-color: var(--cor-fundo-secundario);
+}
+
+.time-completo-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.time-completo-textbox {
+    background-color: rgba(13, 27, 42, 0.5);
+    padding: 30px;
+    text-align: center;
+    line-height: 1.6;
+    border-top: 2px solid var(--cor-texto-destaque);
+}
+
+.time-completo-textbox p {
+    font-family: var(--fonte-corpo);
+    font-size: 1.1em;
+    color: var(--cor-texto-claro);
+}
+
+@media (max-width: 900px) {
+    .equipe-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .equipe-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Classes Refatoradas do Inline CSS */
+.nav-brand img {
+    height: 80px;
+    width: auto;
+    border-radius: 4px;
+}
+
+video {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.patrocinio-container {
+    margin-top: 10px;
+}
+
+.titulo-patrocinio {
     font-family: var(--fonte-titulo);
     color: var(--cor-texto-destaque);
-    font-size: 1.5em;
-    margin-bottom: 15px;
-}
-
-.card p {
-    font-family: var(--fonte-corpo);
-    font-size: 1em;
-}
-
-/* Intro text on home page */
-.intro-text {
-    font-size: 1.5em;
-    font-family: var(--fonte-corpo);
-    text-align: center;
-    margin-bottom: 40px;
-    max-width: 700px;
-}
-
-/* Quem somos text */
-.quem-somos-content {
-    background-color: rgba(27, 38, 59, 0.7);
-    border: 2px solid var(--cor-borda-xilogravura);
-    border-radius: 10px;
-    padding: 30px;
+    font-size: 1.6em;
     margin-bottom: 30px;
-    font-family: var(--fonte-corpo);
-    font-size: 1.2em;
-    line-height: 1.8;
-    max-width: 800px;
+    text-align: center;
 }
 
-.quem-somos-content p {
-    margin-bottom: 20px;
+.patrocinio-grid {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Classes para index.html container de colunas dupla */
+.index-grid {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    align-items: flex-start;
+}
+
+.index-grid-col {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.index-grid-title {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-texto-destaque);
+    margin-top: 40px;
+    text-align: center;
+}
+
+.index-grid-col .card-container {
+    max-width: 100%;
+}
+
+.index-grid-col .card {
+    width: calc(100% - 20px);
 }
