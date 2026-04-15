@@ -1,40 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AstroCordel - Home</title>
     <link rel="stylesheet" href="style_base.css">
 </head>
+
 <body>
     <nav class="nav-menu">
-        <a href="index.html" class="active">Página Inicial</a>
-        <a href="quem_somos.html">Quem Somos</a>
+        <a href="index.html" class="nav-brand">
+            <img src="img/logo.png" alt="Logo AstroCordel">
+            <span>AstroCordel</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Página Inicial</a>
+            <a href="quem_somos.html">Quem Somos</a>
+        </div>
     </nav>
     <div class="container">
         <h1>AstroCordel</h1>
         <p class="intro-text">Explore os mistérios do universo através da magia e da rima da literatura de cordel.</p>
 
-        <p class="intro-text">Descrição do Projeto AstroCordel</p>
+        <p class="intro-text">O projeto é uma tentativa de integrar poemas em estilo cordel com o ensino da astronomia,
+            promovendo acessibilidade e despertar científico para crianças e adultos interessados no tema.</p>
 
-        <div class="card-container">
-            <a href="poema_big_bang.html" class="card">
-                <h2>O Início do Universo</h2>
-                <p>O Big Bang e a expansão do cosmos em versos.</p>
-            </a>
+        <div class="index-grid">
+            <div class="index-grid-col">
+                <h2 class="index-grid-title">
+                    Poemas de Cordel</h2>
+                <div class="card-container">
+                    <a href="big_bang.html" class="card">
+                        <h2>O Big Bang</h2>
+                        <p>O início do universo e a expansão do cosmos em versos.</p>
+                    </a>
+                    <a href="estrelas.html" class="card">
+                        <h2>As Estrelas</h2>
+                        <p>Nascimento, vida e o brilho intenso no céu.</p>
+                    </a>
+                    <a href="lua_sangue.html" class="card">
+                        <h2>Lua de Sangue</h2>
+                        <p>Os mistérios e belezas de um eclipse lunar total.</p>
+                    </a>
+                    <a href="sol_apaga.html" class="card">
+                        <h2>O sol vai apagar?</h2>
+                        <p>O destino final da nossa estrela maior.</p>
+                    </a>
+                </div>
+            </div>
 
-            <a href="lua_sangue.html" class="card">
-                <h2>Lua de Sangue</h2>
-                <p>Grande e vermelha, lua de sangue.</p>
-            </a>
-            <!-- Futuros poemas podem ser adicionados aqui -->
+            <div class="index-grid-col">
+                <h2 class="index-grid-title">
+                    Cantorias (Músicas)</h2>
+                <div class="card-container">
+                    <a href="esferas_m.html" class="card">
+                        <h2>A Dança das Esferas</h2>
+                        <p>Ouça os acordes das órbitas celestiais.</p>
+                    </a>
+                    <a href="leis_fisicas_m.html" class="card">
+                        <h2>As Leis Físicas</h2>
+                        <p>As regras do universo traduzidas em notas musicais.</p>
+                    </a>
+                    <a href="planetas_anoes_m.html" class="card">
+                        <h2>Planetas Anões</h2>
+                        <p>Uma canção aos pequenos gigantes do sistema solar.</p>
+                    </a>
+                    <a href="poeira_estelar_m.html" class="card">
+                        <h2>Poeira Estelar</h2>
+                        <p>Cantoria sobre do que todos nós somos feitos.</p>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="referencias">
-        <h2>AstroCordel</h2>
-        <p>Astronomia e Poesia em uma só constelação.</p>
-        <a href="https://periodicos.ifpr.edu.br/index.php/MundiSH/article/view/1717">Leitura</a>
+        <div class="patrocinio-container">
+            <p class="titulo-patrocinio">
+                Apoio Institucional e Fonte Financiadora</p>
+            <div class="patrocinio-grid">
+                <a href="https://ifpr.edu.br/umuarama/" target="_blank" rel="noopener noreferrer"
+                    class="link-patrocinio">
+                    <img src="img/IF.png" alt="Instituto Federal do Paraná" class="logo-patrocinio">
+                </a>
+                <a href="https://www.fappr.pr.gov.br/" target="_blank" rel="noopener noreferrer"
+                    class="link-patrocinio">
+                    <img src="img/araucaria.jpg" alt="Fundação Araucária" class="logo-patrocinio">
+                </a>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>
